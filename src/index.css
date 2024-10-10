@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
+
+:root {
+  --color-primary: #ff6b6b;
+  --color-secondary: #4ecdc4;
+  --color-tertiary: #feca57;
+  --color-background: #f7f7f7;
+  --color-surface: #ffffff;
+  --color-text: #2d3436;
+  --color-text-light: #636e72;
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.header {
+  text-align: center;
+  padding: 6rem 0;
+  background: var(--gradient-primary);
+  margin-bottom: 4rem;
+  border-radius: var(--border-radius);
+}
+
+.header h1 {
+  font-size: 5.6rem;
+  font-weight: 700;
+  color: var(--color-surface);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+  background-color: var(--color-surface);
+  padding: 4rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+}
+
+.menu h2 {
+  font-size: 3.6rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.menu > p {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--color-text-light);
+}
+
+.pizzas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 4rem;
+  list-style-type: none;
+}
+
+.pizza {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.pizza:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.pizza img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.pizza:hover img {
+  transform: scale(1.05);
+}
+
+.pizza-content {
+  padding: 2rem;
+}
+
+.pizza h3 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.pizza p {
+  font-size: 1.4rem;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+}
+
+.pizza-price {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  background-color: rgba(78, 205, 196, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+}
+
+.pizza.sold-out {
+  opacity: 0.7;
+  filter: grayscale(100%);
+}
+
+.pizza.sold-out .pizza-price {
+  text-decoration: line-through;
+  color: var(--color-text-light);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.footer {
+  background-color: var(--color-surface);
+  padding: 4rem;
+  text-align: center;
+  margin-top: 4rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+}
+
+.footer-content {
+  font-size: 1.6rem;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1.2rem 2.4rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-surface);
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .header h1 {
+    font-size: 4.8rem;
+  }
+
+  .menu {
+    padding: 3rem;
+  }
+
+  .pizzas {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+
+  .header h1 {
+    font-size: 4rem;
+  }
+
+  .menu {
+    padding: 2rem;
+  }
+
+  .pizza img {
+    height: 18rem;
+  }
+}
